@@ -113,8 +113,6 @@ function isValidData(inputData){
       console.log('Invalid Rec :',invalidRec, ' - ', errorFound);
       return false;
   }
-  //return inputData.name && inputData.name.toString().trim() !== '' &&
-  //  inputData.content && inputData.content.toString().trim() !== '';
 }
 
 app.post('/test', (request, response) => {
@@ -146,9 +144,8 @@ app.post('/test', (request, response) => {
     //response.status(200);
   } else {
     response.status(422);
-    response.json({
-      message: 'Invalid Data Input'
-    });
+    //console.log(invalidRec);
+    response.send(invalidRec);
   }
 }); 
 
